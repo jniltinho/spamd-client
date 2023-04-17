@@ -30,9 +30,9 @@ import (
 	"strings"
 	"time"
 
-	spamdclient "github.com/baruwa-enterprise/spamd-client/pkg"
-	"github.com/baruwa-enterprise/spamd-client/pkg/request"
-	"github.com/baruwa-enterprise/spamd-client/pkg/response"
+	spamdclient "github.com/jniltinho/spamd-client/pkg"
+	"github.com/jniltinho/spamd-client/pkg/request"
+	"github.com/jniltinho/spamd-client/pkg/response"
 	flag "github.com/spf13/pflag"
 )
 

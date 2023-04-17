@@ -27,9 +27,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/baruwa-enterprise/spamd-client/pkg/header"
-	"github.com/baruwa-enterprise/spamd-client/pkg/request"
-	"github.com/baruwa-enterprise/spamd-client/pkg/response"
+	"github.com/jniltinho/spamd-client/pkg/header"
+	"github.com/jniltinho/spamd-client/pkg/request"
+	"github.com/jniltinho/spamd-client/pkg/response"
 )
 
 const (

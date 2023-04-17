@@ -2,10 +2,10 @@
 
 Golang SpamAssassin Client Library and Commandline tool
 
-[![Ci](https://github.com/baruwa-enterprise/spamd-client/workflows/Ci/badge.svg)](https://github.com/baruwa-enterprise/spamd-client/actions?query=workflow%3ACi)
-[![codecov](https://codecov.io/gh/baruwa-enterprise/spamd-client/branch/master/graph/badge.svg)](https://codecov.io/gh/baruwa-enterprise/spamd-client)
-[![Go Report Card](https://goreportcard.com/badge/github.com/baruwa-enterprise/spamd-client)](https://goreportcard.com/report/github.com/baruwa-enterprise/spamd-client)
-[![Go Reference](https://pkg.go.dev/badge/github.com/baruwa-enterprise/spamd-client.svg)](https://pkg.go.dev/github.com/baruwa-enterprise/spamd-client)
+[![Ci](https://github.com/jniltinho/spamd-client/workflows/Ci/badge.svg)](https://github.com/jniltinho/spamd-client/actions?query=workflow%3ACi)
+[![codecov](https://codecov.io/gh/jniltinho/spamd-client/branch/master/graph/badge.svg)](https://codecov.io/gh/jniltinho/spamd-client)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jniltinho/spamd-client)](https://goreportcard.com/report/github.com/jniltinho/spamd-client)
+[![Go Reference](https://pkg.go.dev/badge/github.com/jniltinho/spamd-client.svg)](https://pkg.go.dev/github.com/jniltinho/spamd-client)
 [![MPLv2 License](https://img.shields.io/badge/license-MPLv2-blue.svg?style=flat-square)](https://www.mozilla.org/MPL/2.0/)
 
 ## Description
@@ -25,7 +25,7 @@ SPAMD client protocol used by SpamAssassin.
 The spamd-client client can be installed as follows
 
 ```console
-$ go get github.com/baruwa-enterprise/spamd-client/cmd/spamd-client
+$ go get github.com/jniltinho/spamd-client/cmd/spamd-client
 ```
 
 Or by cloning the repo and then running
@@ -40,7 +40,7 @@ $ ./bin/spamd-client
 You can import the library in your code
 
 ```golang
-import "github.com/baruwa-enterprise/spamd-client/pkg"
+import "github.com/jniltinho/spamd-client/pkg"
 ```
 
 ### Testing

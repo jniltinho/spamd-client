@@ -10,7 +10,7 @@ spamd-client - Golang Spamd SpamAssassin Client
 package request
 
 import (
-	"github.com/baruwa-enterprise/spamd-client/pkg/header"
+	"github.com/jniltinho/spamd-client/pkg/header"
 )
 
 const (

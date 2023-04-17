@@ -2,7 +2,7 @@
 
 ## Development Lead
 
-- Andrew Colin Kissa [baruwa-enterprise](https://github.com/baruwa-enterprise)
+- Andrew Colin Kissa [jniltinho](https://github.com/jniltinho)
 
 ## Contributors
 

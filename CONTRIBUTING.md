@@ -8,7 +8,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/baruwa-enterprise/spamd-client/issues.
+Report bugs at https://github.com/jniltinho/spamd-client/issues.
 
 If you are reporting a bug, please include:
 
@@ -34,7 +34,7 @@ articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/baruwa-enterprise/spamd-client/issues.
+The best way to send feedback is to file an issue at https://github.com/jniltinho/spamd-client/issues.
 
 If you are proposing a feature:
 

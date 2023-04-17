@@ -12,7 +12,7 @@ package response
 import (
 	"testing"
 
-	"github.com/baruwa-enterprise/spamd-client/pkg/request"
+	"github.com/jniltinho/spamd-client/pkg/request"
 )
 
 type StatusCodeTestKey struct {

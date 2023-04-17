@@ -1,7 +1,3 @@
-/*
-Package main
-spamd-client - Golang Spamd SpamAssassin Client
-*/
 package main
 
 // StatusCode StatusCode
@@ -22,10 +18,9 @@ import (
 	"log"
 	"os"
 	"path"
-	"strings"
 
-	spamc "github.com/baruwa-enterprise/spamd-client/pkg"
-	"github.com/baruwa-enterprise/spamd-client/pkg/response"
+	spamc "github.com/jniltinho/spamd-client/pkg"
+	"github.com/jniltinho/spamd-client/pkg/response"
 	flag "github.com/spf13/pflag"
 )
 
@@ -37,14 +32,10 @@ var (
 // Config holds the configuration
 type Config struct {
 	Address        string
-	Port           int
-	UseTLS         bool
+	Protocol       string
 	User           string
 	UseCompression bool
-	RootCA         string
 	Filename       string
-	Socket         bool
-	SockerPath     string
 }
 
 func d(r *response.Response) {
@@ -62,35 +53,20 @@ func d(r *response.Response) {
 	log.Printf("Msg.Body => %s", r.Msg.Body)
 	log.Printf("Msg.Raw => %s", r.Raw)
 	log.Printf("Rules => %v\n", r.Rules)
+	log.Printf("Rules[0] => %v\n", r.Rules[0])
 	log.Println("===================================")
+
 }
 
 func init() {
 	cfg = &Config{}
 	cmdName = path.Base(os.Args[0])
-	flag.StringVarP(&cfg.Address, "host", "H", "127.0.0.1", `Specify Spamd host to connect to.`)
-	flag.BoolVarP(&cfg.Socket, "socket", "S", true, `Use Linux socket.`)
-	flag.StringVarP(&cfg.SockerPath, "socket-path", "s", "/var/run/clamav/spamd-socket", `Specify socket path.`)
 
-	flag.IntVarP(&cfg.Port, "port", "p", 783, `In TCP/IP mode, connect to spamd server listening on given port`)
-	flag.StringVarP(&cfg.User, "user", "u", "clamav", `User for spamd to process this message under.`)
-	flag.BoolVarP(&cfg.UseCompression, "use-compression", "z", false, `Compress mail message sent to spamd.`)
-	flag.StringVarP(&cfg.Filename, "file-name", "F", "", `Specify filename .eml file to scan.`)
-}
-
-func parseAddr(a string, p int) (n string, h string) {
-	if strings.HasPrefix(a, "/") {
-		n = "unix"
-		h = a
-	} else {
-		n = "tcp"
-		if strings.Contains(a, ":") {
-			h = fmt.Sprintf("[%s]:%d", a, p)
-		} else {
-			h = fmt.Sprintf("%s:%d", a, p)
-		}
-	}
-	return
+	flag.StringVarP(&cfg.Protocol, "proto", "S", "unix", "Protocol family (unix or tcp)")
+	flag.StringVarP(&cfg.Address, "addr", "H", "127.0.0.1:783", "Bind to address or unix domain socket")
+	flag.StringVarP(&cfg.User, "user", "U", "clamav", "User for spamd to process this message under.")
+	flag.BoolVarP(&cfg.UseCompression, "use-compression", "Z", false, "Compress mail message sent to spamd.")
+	flag.StringVarP(&cfg.Filename, "file-name", "F", "", "Specify filename .eml file to scan.")
 }
 
 func usage() {
@@ -105,7 +81,6 @@ func main() {
 	flag.CommandLine.SortFlags = false
 	flag.Parse()
 	ctx := context.Background()
-	network, address := parseAddr(cfg.Address, cfg.Port)
 	m := []byte("Subject: Hello\r\n\r\nHey there!\r\n")
 
 	if cfg.Filename != "" {
@@ -117,11 +92,10 @@ func main() {
 		}
 	}
 
-	if cfg.Socket {
-		network = "unix"
-		address = cfg.SockerPath
+	if cfg.Protocol == "unix" && cfg.Address == "127.0.0.1:783" {
+		cfg.Address = "/var/run/clamav/spamd-socket"
 	}
-	c, err := spamc.NewClient(network, address, cfg.User, cfg.UseCompression)
+	c, err := spamc.NewClient(cfg.Protocol, cfg.Address, cfg.User, cfg.UseCompression)
 	if err != nil {
 		log.Println(err)
 		return
