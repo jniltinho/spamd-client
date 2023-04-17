@@ -2,8 +2,6 @@
 
 Golang SpamAssassin Client Library and Commandline tool
 
-[![MPLv2 License](https://img.shields.io/badge/license-MPLv2-blue.svg?style=flat-square)](https://www.mozilla.org/MPL/2.0/)
-
 ## Description
 
 spamd-client is a Golang library and cmdline tool that implements the
@@ -43,6 +41,3 @@ import "github.com/jniltinho/spamd-client/pkg"
 
 ``make test``
 
-## License
-
-MPL-2.0
