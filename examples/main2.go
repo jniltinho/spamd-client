@@ -18,6 +18,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"strings"
 
 	spamc "github.com/jniltinho/spamd-client/pkg"
 	"github.com/jniltinho/spamd-client/pkg/response"
@@ -39,7 +40,8 @@ type Config struct {
 }
 
 func d(r *response.Response) {
-	// log.Println("===================================")
+
+	log.Println(strings.Repeat("=", 70))
 	log.Printf("RequestMethod => %v\n", r.RequestMethod)
 	log.Printf("StatusCode => %v\n", r.StatusCode)
 	log.Printf("StatusMsg => %v\n", r.StatusMsg)
@@ -53,8 +55,7 @@ func d(r *response.Response) {
 	log.Printf("Msg.Body => %s", r.Msg.Body)
 	log.Printf("Msg.Raw => %s", r.Raw)
 	log.Printf("Rules => %v\n", r.Rules)
-	log.Printf("Rules[0] => %v\n", r.Rules[0])
-	log.Println("===================================")
+	log.Println(strings.Repeat("=", 70))
 
 }
 
