@@ -2,10 +2,6 @@
 
 Golang SpamAssassin Client Library and Commandline tool
 
-[![Ci](https://github.com/jniltinho/spamd-client/workflows/Ci/badge.svg)](https://github.com/jniltinho/spamd-client/actions?query=workflow%3ACi)
-[![codecov](https://codecov.io/gh/jniltinho/spamd-client/branch/master/graph/badge.svg)](https://codecov.io/gh/jniltinho/spamd-client)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jniltinho/spamd-client)](https://goreportcard.com/report/github.com/jniltinho/spamd-client)
-[![Go Reference](https://pkg.go.dev/badge/github.com/jniltinho/spamd-client.svg)](https://pkg.go.dev/github.com/jniltinho/spamd-client)
 [![MPLv2 License](https://img.shields.io/badge/license-MPLv2-blue.svg?style=flat-square)](https://www.mozilla.org/MPL/2.0/)
 
 ## Description
@@ -15,7 +11,7 @@ SPAMD client protocol used by SpamAssassin.
 
 ## Requirements
 
-* Golang 1.15.x or higher
+* Golang 1.20.x or higher
 * Pflag - github.com/spf13/pflag
 
 ## Getting started
