@@ -41,7 +41,7 @@ type Config struct {
 
 func d(r *response.Response) {
 
-	log.Println(strings.Repeat("=", 70))
+	println(strings.Repeat("==", 85))
 	log.Printf("RequestMethod => %v\n", r.RequestMethod)
 	log.Printf("StatusCode => %v\n", r.StatusCode)
 	log.Printf("StatusMsg => %v\n", r.StatusMsg)
@@ -55,7 +55,7 @@ func d(r *response.Response) {
 	log.Printf("Msg.Body => %s", r.Msg.Body)
 	log.Printf("Msg.Raw => %s", r.Raw)
 	log.Printf("Rules => %v\n", r.Rules)
-	log.Println(strings.Repeat("=", 70))
+	println(strings.Repeat("==", 85))
 
 }
 
